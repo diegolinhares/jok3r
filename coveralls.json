@@ -1,0 +1,13 @@
+{
+  "skip_files": [
+    "lib/jok3r/application.ex",
+    "lib/jok3r_web.ex",
+    "lib/jok3r_web/telemetry.ex",
+    "test/support/*"
+  ],
+  "coverage_options": {
+    "treat_no_relevant_lines_as_covered": true,
+    "output_dir": "cover/",
+    "minimum_coverage": 80
+  }
+}
