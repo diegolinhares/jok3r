@@ -3,6 +3,7 @@
     "lib/jok3r/application.ex",
     "lib/jok3r_web.ex",
     "lib/jok3r_web/telemetry.ex",
+    "lib/jok3r_web/components/core_components.ex",
     "test/support/*"
   ],
   "coverage_options": {
