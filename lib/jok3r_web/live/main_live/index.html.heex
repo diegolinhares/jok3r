@@ -1,0 +1,12 @@
+<.header>
+  Create a new room
+</.header>
+
+<.simple_form id="new-room" for={@form} phx-submit="save">
+  <.input type="text" field={@form[:username]} phx-debounce="500" label="Username" />
+  <.input type="text" field={@form[:topic]} phx-debounce="500" label="Room topic" />
+
+  <:actions>
+    <.button>Create</.button>
+  </:actions>
+</.simple_form>

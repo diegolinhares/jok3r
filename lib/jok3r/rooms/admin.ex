@@ -227,6 +227,7 @@ defmodule Jok3r.Rooms.Admin do
 
   defp generate_room(manager) do
     %Room{
+      id: generate_user_id(manager.username),
       users: [manager],
       manager_id: manager.id
     }

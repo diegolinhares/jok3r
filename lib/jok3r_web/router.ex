@@ -10,28 +10,17 @@ defmodule Jok3rWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
   scope "/", Jok3rWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", MainLive.Index, :index
+
+    live_session :user, on_mount: Jok3rWeb.LiveSessions.User do
+      live "/room/:id", RoomLive.Show, :show
+    end
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Jok3rWeb do
-  #   pipe_through :api
-  # end
-
-  # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:jok3r, :dev_routes) do
-    # If you want to use the LiveDashboard in production, you should put
-    # it behind authentication and allow only admins to access it.
-    # If your application does not have an admins-only section yet,
-    # you can use Plug.BasicAuth to set up some basic authentication
-    # as long as you are also using SSL (which you should anyway).
     import Phoenix.LiveDashboard.Router
 
     scope "/dev" do
